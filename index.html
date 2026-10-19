@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arte & Cor | Materiais Artísticos</title>
+
+    <style>
+        /* PALETA DE CORES */
+
+        :root {
+            --cor-principal: #800020;
+            --cor-secundaria: #a52a4a;
+            --cor-clara: #f8e8ec;
+            --cor-escura: #4b0013;
+            --cor-branca: #ffffff;
+        }
+
+        /* CONFIGURAÇÕES GERAIS */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--cor-clara);
+            color: var(--cor-escura);
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+
+        header {
+            background-color: var(--cor-principal);
+            color: var(--cor-branca);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 17px;
+        }
+
+        /* MENU */
+
+        nav {
+            background-color: var(--cor-escura);
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--cor-branca);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffc4d1;
+        }
+
+        /* BANNER PRINCIPAL */
+
+        .banner {
+            background: linear-gradient(
+                135deg,
+                #800020,
+                #a52a4a,
+                #d46a85
+            );
+            color: var(--cor-branca);
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            font-size: 18px;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: var(--cor-branca);
+            color: var(--cor-principal);
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background-color: var(--cor-clara);
+            transform: translateY(-2px);
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        section {
+            margin-bottom: 55px;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        /* CARROSSEL */
+
+        .carrossel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 15px;
+            padding-bottom: 12px;
+        }
+
+        .slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            background-color: var(--cor-branca);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide figcaption {
+            background-color: var(--cor-principal);
+            color: var(--cor-branca);
+            text-align: center;
+            padding: 18px;
+        }
+
+        /* PRODUTOS */
+
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .produto {
+            background-color: var(--cor-branca);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px #00000015;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .produto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px #00000020;
+        }
+
+        .produto img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .produto-conteudo {
+            padding: 20px;
+        }
+
+        .produto h3 {
+            margin-bottom: 10px;
+            color: var(--cor-principal);
+        }
+
+        .produto p {
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            display: block;
+            font-size: 23px;
+            font-weight: bold;
+            color: var(--cor-principal);
+            margin-bottom: 15px;
+        }
+
+        .botao-produto {
+            display: inline-block;
+            background-color: var(--cor-principal);
+            color: var(--cor-branca);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .botao-produto:hover {
+            background-color: var(--cor-secundaria);
+        }
+
+        /* SOBRE A LOJA */
+
+        .sobre {
+            background-color: var(--cor-branca);
+            border-left: 6px solid var(--cor-principal);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .sobre p {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            background-color: var(--cor-escura);
+            color: var(--cor-branca);
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer a {
+            color: #ffc4d1;
+            text-decoration: none;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 800px) {
+            .produtos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .banner h2 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            .produtos {
+                grid-template-columns: 1fr;
+            }
+
+            .banner {
+                padding: 45px 15px;
+            }
+
+            .banner h2 {
+                font-size: 27px;
+            }
+
+            .slide img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+        <h1>🎨 Arte & Cor</h1>
+        <p>Materiais artísticos para dar vida às suas ideias!</p>
+    </header>
+
+    <!-- MENU -->
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <!-- BANNER -->
+
+    <div class="banner" id="inicio">
+        <h2>Sua criatividade merece as melhores cores!</h2>
+
+        <p>
+            Encontre lápis de cor, tintas, pincéis e diversos
+            materiais para transformar suas ideias em arte.
+        </p>
+
+        <a href="#produtos" class="botao">
+            Conheça nossos produtos
+        </a>
+    </div>
+
+    <main>
+
+        <!-- CARROSSEL -->
+
+        <section>
+            <h2>Inspire-se e crie!</h2>
+
+            <div class="carrossel">
+
+                <figure class="slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80"
+                        alt="Materiais de pintura e desenho">
+                    <figcaption>
+                        Tudo para liberar sua criatividade.
+                    </figcaption>
+                </figure>
+
+                <figure class="slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=1200&q=80"
+                        alt="Materiais artísticos coloridos">
+                    <figcaption>
+                        Cores e materiais para novas ideias.
+                    </figcaption>
+                </figure>
+
+                <figure class="slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80"
+                        alt="Espaço de criação artística">
+                    <figcaption>
+                        Transforme sua imaginação em arte.
+                    </figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+        <!-- VITRINE DE PRODUTOS -->
+
+        <section id="produtos">
+            <h2>Nossos produtos</h2>
+
+            <div class="produtos">
+
+                <article class="produto">
+                    <img
+                        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
+                        alt="Materiais para desenho e pintura">
+
+                    <div class="produto-conteudo">
+                        <h3>Lápis de Cor</h3>
+
+                        <p>
+                            Cores vibrantes para desenhos,
+                            ilustrações e trabalhos escolares.
+                        </p>
+
+                        <span class="preco">R$ 24,90</span>
+
+                        <a href="#contato" class="botao-produto">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto">
+                    <img
+                        src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=600&q=80"
+                        alt="Materiais coloridos para atividades artísticas">
+
+                    <div class="produto-conteudo">
+                        <h3>Kit de Tintas</h3>
+
+                        <p>
+                            Diversas cores para pinturas,
+                            artesanatos e projetos criativos.
+                        </p>
+
+                        <span class="preco">R$ 39,90</span>
+
+                        <a href="#contato" class="botao-produto">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto">
+                    <img
+                        src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
+                        alt="Caderno utilizado para anotações e desenhos">
+
+                    <div class="produto-conteudo">
+                        <h3>Caderno de Desenho</h3>
+
+                        <p>
+                            Um espaço especial para registrar
+                            ideias, esboços e ilustrações.
+                        </p>
+
+                        <span class="preco">R$ 19,90</span>
+
+                        <a href="#contato" class="botao-produto">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto">
+                    <img
+                        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
+                        alt="Materiais para pintura artística">
+
+                    <div class="produto-conteudo">
+                        <h3>Kit de Pincéis</h3>
+
+                        <p>
+                            Pincéis para diferentes traços,
+                            detalhes e técnicas de pintura.
+                        </p>
+
+                        <span class="preco">R$ 29,90</span>
+
+                        <a href="#contato" class="botao-produto">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto">
+                    <img
+                        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
+                        alt="Conjunto de materiais para criar arte">
+
+                    <div class="produto-conteudo">
+                        <h3>Kit Criativo</h3>
+
+                        <p>
+                            Uma seleção de materiais para
+                            começar novos projetos artísticos.
+                        </p>
+
+                        <span class="preco">R$ 59,90</span>
+
+                        <a href="#contato" class="botao-produto">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </article>
+
+                <article class="produto">
+                    <img
+                        src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
+                        alt="Caderno para projetos e desenhos">
+
+                    <div class="produto-conteudo">
+                        <h3>Bloco de Desenho</h3>
+
+                        <p>
+                            Ideal para esboços, estudos
+                            e novas experiências com arte.
+                        </p>
+
+                        <span class="preco">R$ 14,90</span>
+
+                        <a href="#contato" class="botao-produto">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SOBRE A LOJA -->
+
+        <section id="sobre">
+            <div class="sobre">
+                <h2>Sobre a Arte & Cor</h2>
+
+                <p>
+                    Essa loja fo criada apenas para intuito educacional, nenhum dos produtos está realmente a venda, logo desconsidere.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+
+        <section id="contato">
+            <h2>Entre em contato</h2>
+
+            <div class="sobre">
+                <p>
+                    Gostou de algum produto? Entre em contato
+                    para saber mais sobre os materiais.
+                </p>
+
+                <br>
+
+                <a
+                    href="mailto:contato@arteecor.com"
+                    class="botao-produto">
+                    Enviar e-mail
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+
+    <footer>
+        <p>Arte & Cor — Materiais Artísticos</p>
+        <p>Projeto demonstrativo desenvolvido com HTML e CSS.</p>
+        <p>&copy; 2026 - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
